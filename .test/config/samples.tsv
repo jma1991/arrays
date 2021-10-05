@@ -1,0 +1,5 @@
+sample	condition	batch	filename
+2400_II	colitis.inflamed	NA	data/2400_II.CEL
+888_II	colitis.inflamed	NA	data/888_II.CEL
+2995_I	colitis.normal	NA	data/2995_I.CEL
+3269_I	colitis.normal	NA	data/3269_I.CEL

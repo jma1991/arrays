@@ -1,0 +1,17 @@
+# path to sample sheet
+samples: config/samples.tsv
+
+# bioconductor organism data package
+organism: org.Hs.eg.db
+
+# bioconductor platform data package
+platform: pd.hugene.1.0.st.v1
+
+# bioconductor annotation data package
+annotation: hugene10sttranscriptcluster.db
+
+# contrasts for the limma results method
+contrasts:
+  A_vs_B:
+    - A
+    - B

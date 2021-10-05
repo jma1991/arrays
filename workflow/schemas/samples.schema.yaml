@@ -1,0 +1,22 @@
+$schema: "http://json-schema.org/draft-06/schema#"
+
+description:
+
+properties:
+  
+  sample:
+    type: string
+  
+  condition:
+    type: string
+  
+  batch:
+    type: string
+  
+  filename:
+    type: string
+
+required:
+  - sample
+  - condition
+  - filename

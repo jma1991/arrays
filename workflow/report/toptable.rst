@@ -1,0 +1,1 @@
+Table of the top-ranked genes from a linear model fit.

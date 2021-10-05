@@ -1,0 +1,30 @@
+# Author: James Ashmore
+# Copyright: Copyright 2020, James Ashmore
+# Email: james.ashmore@zifornd.com
+# License: MIT
+
+# Configuration file
+configfile: "config/config.yaml"
+
+# Report file
+report: "report/workflow.rst"
+
+# Container image
+container: "docker://continuumio/miniconda3"
+
+# Global constraints
+wildcard_constraints:
+    contrast = "|".join(config["contrasts"])
+
+# Workflow rules
+include: "rules/common.smk"
+include: "rules/resources.smk"
+include: "rules/preprocessing.smk"
+include: "rules/qc.smk"
+include: "rules/diffexp.smk"
+include: "rules/go.smk"
+
+# Target rule
+rule all:
+    input:
+        get_final_output()

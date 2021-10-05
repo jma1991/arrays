@@ -1,0 +1,1 @@
+Linear Model for Series of Arrays
