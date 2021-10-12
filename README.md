@@ -12,118 +12,100 @@ A Snakemake workflow to analyse Affymetrix expression arrays
 * [Overview](#overview)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Deployment](#deployment)
 * [Documentation](#documentation)
 * [Contributing](#contributing)
 * [Authors](#authors)
-* [Tests](#tests)
+* [Citation](#citation)
+* [Partnerships](#partnerships)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
 ## Overview
 
-Arrays is a Snakemake workflow to analyze Affymetrix gene expression arrays. It performs
-
-
-
-It currently supports Affymetrix CEL files.
+This workflow is used to analyse Affymetrix expression arrays. It performs quality control, differential expression analysis, and gene set testing. See `documentation.md` for configuration, execution, and output settings.
 
 ## Installation
 
-Arrays can be installed via the mamba package manager:
-
-
+Install Snakemake using the conda package manager:
 
 ```console
-# Install Snakemake
-$ mamba create -c bioconda -c conda-forge --name snakemake snakemake
+$ conda activate base
+$ conda create -c bioconda -c conda-forge --name snakemake snakemake
+```
 
-# Activate Snakemake environment
-$ mamba activate snakemake
+Deploy the workflow to your project directory:
 
-# Create project directory
-$ mkdir project
-
-# Download workflow to project directory
-$ git pull https://github.com/zifornd/array project
+```console
+$ mkdir projects/arrays
+$ git pull https://github.com/zifornd/arrays projects/arrays
 ```
 
 ## Usage
 
-
-
-
-
-
+Configure the workflow by editing the `config.yaml` file:
 
 ```console
-# Configure workflow
 $ nano config/config.yaml
+```
 
-# Define samples
-$ nano config/samples.csv
+Define the samples by editing the `samples.tsv` file:
 
-# Test configuration
-$ snakemake -n
+```console
+$ nano config/samples.tsv
+```
 
-# Execute workflow
-$ snakemake --cores all --use-conda
+Execute the workflow and install dependencies:
+
+```console
+snakemake --cores all --use-conda 
 ```
 
 ## Deployment
 
-TODO: Suman Ghosh
+@SumanGhosh
 
 ## Documentation
 
-See the [`documentation.md`](workflow/documentation.md) file for the full documentation
+See `documentation.md` for full documentation.
 
-## Support
-
-If you need support, open an issue with one of the labels:
-
-- help wanted (extra attention is needed)
-- question (further information is requested)
-
-## Feedback
-
-If you have feedback, open an issue with one of the labels:
-
-- documentation (improvements or additions to documentation)
-- enhancement (new feature or request)
 
 ## Contributing
 
-Contributions are always welcome!
+To contribute to this workflow, clone this repository locally and commit your code on a separate branch.
 
-See `contributing.md` for ways to get started.
+Generate unit tests for your code and run the linter before opening a pull request:
 
-Please adhere to this project's `code of conduct`.
+```console
+$ snakemake --generate-unit-tests
+$ snakemake --lint
+```
+
+Participation in this project is subject to a [Code of Conduct](CODE_OF_CONDUCT.md)
 
 ## Authors
 
-- [James Ashmore](https://www.github.com/james-ashmore)
+This workflow was developed by James Ashmore
 
 ## Citation
 
-If you use Arrays in your research or commerical work, please cite using the DOI: [10.5281/zenodo.4783308](https://doi.org/10.5281/zenodo.4783309)
+See `CITATION.cff` for ways to cite this workflow
 
+## Partnerships
 
-## Used By
+This workflow is used by the following organisations:
 
-Arrays is used by the following companies and institutes:
-
-- [Zifo RnD Solutions](zifornd.com)
-
-If you would like to be added to this list, please open a [pull request](https://github.com/jma1991/scrnaseq/pulls) with your information.
+- Zifo RnD Solutions
 
 ## Acknowledgements
 
-This workflow was developed according to the research article:
+This workflow is based on the following research article:
 
-> Klaus B and Reisenauer S. An end to end workflow for differential gene expression using Affymetrix microarrays [version 2; peer review: 2 approved]. F1000Research 2018, 5:1384 (https://doi.org/10.12688/f1000research.8967.2)
-
+```
+Klaus B and Reisenauer S. An end to end workflow for differential gene expression using Affymetrix microarrays [version 2; peer review: 2 approved]. F1000Research 2018, 5:1384 (https://doi.org/10.12688/f1000research.8967.2)
+```
 
 ## License
 
-This workflow is licensed under the [MIT](LICENSE.md) license.  
-Copyright &copy; 2020, Zifo RnD Solutions
+This workflow is licensed under the MIT license.  
+Copyright &copy; 2021, Zifo RnD Solutions
