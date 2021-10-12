@@ -3,11 +3,8 @@
 A Snakemake workflow to analyse Affymetrix expression arrays
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-
 [![Snakemake-Report](https://img.shields.io/badge/snakemake-report-green.svg)](https://cdn.rawgit.com/snakemake-workflows/rna-seq-kallisto-sleuth/main/.test/report.html)
-
 [![GitHub-Actions](https://github.com/zifornd/array/workflows/Tests/badge.svg?branch=main)](https://github.com/zifornd/array/actions?query=branch%3Amain+workflow%3ATests)
-
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
   
 ## Contents
