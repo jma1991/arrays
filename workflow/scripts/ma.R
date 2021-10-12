@@ -58,7 +58,7 @@ main <- function(input, output, params, log) {
 
     itr <- seq_len(num)
 
-    pdf(output$pdf)
+    png(output$png)
     
     for (i in itr) {
         

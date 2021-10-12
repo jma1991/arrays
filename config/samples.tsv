@@ -1,3 +1,3 @@
-sample	condition	batch	celfile
-A	untreated	1	A.CEL
-B	treated	1	B.CEL
+sample	condition	batch	filename
+A	untreated	1	data/A.CEL
+B	treated	1	data/B.CEL

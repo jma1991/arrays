@@ -28,8 +28,7 @@ rule normalize:
     output:
         rds = "results/normalize.rds"
     params:
-        platform = config["platform"],
-        target = "core"
+        platform = config["platform"]
     log:
         out = "logs/normalize.out",
         err = "logs/normalize.err"

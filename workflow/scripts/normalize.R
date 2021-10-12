@@ -25,7 +25,7 @@ main <- function(input, output, params, log) {
 
     obj <- readRDS(input$rds)
 
-    obj <- rma(obj, target = params$target)
+    obj <- rma(obj)
 
     saveRDS(obj, file = output$rds)
 

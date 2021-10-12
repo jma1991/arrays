@@ -1,8 +1,0 @@
-samples: config/samples.tsv
-organism: org.Hs.eg.db
-platform: pd.hugene.1.0.st.v1
-annotation: hugene10sttranscriptcluster.db
-contrasts:
-  colitis.inflamed-colitis.normal:
-    - colitis.inflamed
-    - colitis.normal

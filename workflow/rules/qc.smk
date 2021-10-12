@@ -8,7 +8,7 @@ rule image:
         rds = "results/import.rds",
         pkg = expand("resources/bioconductor/platform/lib/R/library/{package}", package = config["platform"])
     output:
-        pdf = "results/image.pdf"
+        png = "results/image.png"
     params:
         platform = config["platform"]
     log:
@@ -59,7 +59,7 @@ rule ma:
     input:
         rds = "results/correct.rds"
     output:
-        pdf = report("results/ma.pdf", caption = "../report/ma.rst", category = "Quality Control")
+        png = report("results/ma.png", caption = "../report/ma.rst", category = "Quality Control")
     params:
         col = "condition"
     log:

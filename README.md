@@ -1,9 +1,15 @@
-# Oligo <img align="right" width="200" src="images/roundel.png">
+# Arrays
 
-A Snakemake workflow to analyze oligonucleotide arrays
+A Snakemake workflow to analyse Affymetrix expression arrays
 
-[![DOI](https://zenodo.org/badge/287750880.svg)](https://zenodo.org/badge/latestdoi/287750880)
+[![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
 
+[![Snakemake-Report](https://img.shields.io/badge/snakemake-report-green.svg)](https://cdn.rawgit.com/snakemake-workflows/rna-seq-kallisto-sleuth/main/.test/report.html)
+
+[![GitHub-Actions](https://github.com/zifornd/array/workflows/Tests/badge.svg?branch=main)](https://github.com/zifornd/array/actions?query=branch%3Amain+workflow%3ATests)
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+  
 ## Contents
 
 * [Overview](#overview)
@@ -18,115 +24,96 @@ A Snakemake workflow to analyze oligonucleotide arrays
 
 ## Overview
 
-Chromium is a Snakemake workflow to analyze oligonucleotide arrays (expression/SNP/tiling/exon) at the probe level. It currently supports Affymetrix (CEL files) and NimbleGen arrays (XYS files).
+Arrays is a Snakemake workflow to analyze Affymetrix gene expression arrays. It performs
+
+
+
+It currently supports Affymetrix CEL files.
 
 ## Installation
 
-Chromium and all of its dependencies can be installed via the [mamba](https://github.com/mamba-org/mamba) package manager:
+Arrays can be installed via the mamba package manager:
 
-1. Install Snakemake and Snakedeploy
 
-   ```console
-   $ mamba create -c bioconda -c conda-forge --name snakemake snakemake snakedeploy
-   ```
 
-2. Activate the Snakemake environment
+```console
+# Install Snakemake
+$ mamba create -c bioconda -c conda-forge --name snakemake snakemake
 
-   ```console
-   $ mamba activate snakemake
-   ```
+# Activate Snakemake environment
+$ mamba activate snakemake
 
-3. Create a project directory
+# Create project directory
+$ mkdir project
 
-   ```console
-   $ mkdir -p path/to/project
-   ```
-
-4. Deploy the workflow in the project directory
-
-   ```console
-   $ snakedeploy deploy-workflow https://github.com/snakemake-workflows/chromium path/to/project
-   ```
+# Download workflow to project directory
+$ git pull https://github.com/zifornd/array project
+```
 
 ## Usage
 
-1. Create workflow configuration
 
-   ```console
-   $ vim config/config.yaml   # workflow parameters
-   ```
 
-2. Create samples table
 
-   ```console
-   $ vim config/samples.csv   # sample metadata
-   ```
 
-3. Create units table
 
-   ```console
-   $ vim config/units.csv   # unit metdata
-   ```
 
-4. Test configuration by performing a dry-run
+```console
+# Configure workflow
+$ nano config/config.yaml
 
-   ```console
-   $ snakemake -n
-   ```
+# Define samples
+$ nano config/samples.csv
 
-5. Execute workflow and deploy software dependencies
+# Test configuration
+$ snakemake -n
 
-    ```console
-    $ snakemake --cores all --use-conda
-    ```
+# Execute workflow
+$ snakemake --cores all --use-conda
+```
 
-*For more information, see the [Usage](workflow/documentation.md#usage) section of the documentation.*
+## Deployment
+
+TODO: Suman Ghosh
 
 ## Documentation
 
-Full documentation for Chromium is available [here](workflow/documentation.md)
+See the [`documentation.md`](workflow/documentation.md) file for the full documentation
 
 ## Support
 
-If you need any help, open an [issue](https://github.com/jma1991/scrnaseq/issues) with one of the following labels:
+If you need support, open an issue with one of the labels:
 
 - help wanted (extra attention is needed)
 - question (further information is requested)
 
 ## Feedback
 
-If you have any suggestions, open an [issue](https://github.com/jma1991/scrnaseq/issues) with one of the following labels:
+If you have feedback, open an issue with one of the labels:
 
 - documentation (improvements or additions to documentation)
 - enhancement (new feature or request)
 
 ## Contributing
 
-To contribute to Chromium, clone this repository locally and commit your code on a separate branch. Generate unit tests for your code and run the linter before opening a pull request:
+Contributions are always welcome!
 
-```console
-$ snakemake --generate-unit-tests   # generate unit tests
-$ snakemake --lint                  # run the linter
-```
+See `contributing.md` for ways to get started.
 
-You can find more details in the [Contributing](CONTRIBUTING.md) guide. Importantly, participation in this project is subject to a [Code of Conduct](CODE_OF_CONDUCT.md).
+Please adhere to this project's `code of conduct`.
 
 ## Authors
 
-Chromium was developed by [James Ashmore](https://www.github.com/jma1991) but has benefited from contributions by the following:
-
-- [Benjamin Southgate](#)
-- [Alastair Kilpatrick](#)
-
-If you would like to be added to this list, please open a [pull request](https://github.com/jma1991/scrnaseq/pulls) with your contribution.
+- [James Ashmore](https://www.github.com/james-ashmore)
 
 ## Citation
 
-If you use Chromium in your research, please cite using the DOI: [10.5281/zenodo.4783308](https://doi.org/10.5281/zenodo.4783309)
+If you use Arrays in your research or commerical work, please cite using the DOI: [10.5281/zenodo.4783308](https://doi.org/10.5281/zenodo.4783309)
+
 
 ## Used By
 
-Chromium is used by the following companies and institutes:
+Arrays is used by the following companies and institutes:
 
 - [Zifo RnD Solutions](zifornd.com)
 
@@ -134,23 +121,12 @@ If you would like to be added to this list, please open a [pull request](https:/
 
 ## Acknowledgements
 
-The workflow was developed according to the research article:
+This workflow was developed according to the research article:
 
 > Klaus B and Reisenauer S. An end to end workflow for differential gene expression using Affymetrix microarrays [version 2; peer review: 2 approved]. F1000Research 2018, 5:1384 (https://doi.org/10.12688/f1000research.8967.2)
 
-The workflow was motivated by the following projects:
-
-- [nf-core/scrnaseq](https://github.com/nf-core/scrnaseq)
-- [maxplanck-ie/snakepipes](https://github.com/maxplanck-ie/snakepipes)
-- [10XGenomics/cellranger](https://github.com/10XGenomics/cellranger)
-
-The documentation was informed by the following articles:
-
-- [easiest way to create a readme](https://readme.so)
-- [writing a friendly readme](https://rowanmanning.com/posts/writing-a-friendly-readme/)
-- [writing well for the web](https://www.gov.uk/guidance/content-design/writing-for-gov-uk)
 
 ## License
 
-Chromium is licensed under the [MIT](LICENSE.md) license.  
-Copyright &copy; 2020, James Ashmore
+This workflow is licensed under the [MIT](LICENSE.md) license.  
+Copyright &copy; 2020, Zifo RnD Solutions

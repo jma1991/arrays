@@ -8,7 +8,7 @@ rule goana:
         rds = "results/model.rds",
         pkg = expand("resources/bioconductor/organism/lib/R/library/{package}", package = config["organism"])
     output:
-        tsv = report("results/{contrast}.goana.tsv", caption = "../report/goana.rst", category = "GO", subcategory = "{contrast}")
+        tsv = report("results/{contrast}.goana.tsv", caption = "../report/goana.rst", category = "Gene Set Tests", subcategory = "{contrast}")
     params:
         contrast = get_contrast,
         FDR = 0.05,
@@ -27,7 +27,7 @@ rule topgo:
     input:
         tsv = "results/{contrast}.goana.tsv"
     output:
-        pdf = report("results/{contrast}.topgo.pdf", caption = "../report/topgo.rst", category = "GO", subcategory = "{contrast}")
+        pdf = report("results/{contrast}.topgo.pdf", caption = "../report/topgo.rst", category = "Gene Set Tests", subcategory = "{contrast}")
     params:
         number = 20
     log:
@@ -45,7 +45,7 @@ rule kegga:
         rds = "results/model.rds",
         pkg = expand("resources/bioconductor/organism/lib/R/library/{package}", package = config["organism"])
     output:
-        tsv = report("results/{contrast}.kegga.tsv", caption = "../report/kegga.rst", category = "GO", subcategory = "{contrast}")
+        tsv = report("results/{contrast}.kegga.tsv", caption = "../report/kegga.rst", category = "Gene Set Tests", subcategory = "{contrast}")
     params:
         contrast = get_contrast,
         FDR = 0.05,
@@ -64,7 +64,7 @@ rule topkegg:
     input:
         tsv = "results/{contrast}.kegga.tsv"
     output:
-        pdf = report("results/{contrast}.topkegg.pdf", caption = "../report/topkegg.rst", category = "GO", subcategory = "{contrast}")
+        pdf = report("results/{contrast}.topkegg.pdf", caption = "../report/topkegg.rst", category = "Gene Set Tests", subcategory = "{contrast}")
     params:
         number = 20
     log:

@@ -29,7 +29,7 @@ main <- function(input, output, params, log) {
 
 	itr <- seq_along(ids)
 
-	pdf(output$pdf)
+	png(output$png)
 
 	for (i in itr) {
 		

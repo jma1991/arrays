@@ -1,6 +1,8 @@
 $schema: "http://json-schema.org/draft-06/schema#"
 
-description:
+description: sample sheet
+
+type: object
 
 properties:
   
@@ -11,6 +13,9 @@ properties:
     type: string
   
   batch:
+    type: string
+  
+  block:
     type: string
   
   filename:
