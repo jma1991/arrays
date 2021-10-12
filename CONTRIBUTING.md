@@ -12,6 +12,19 @@ A table of contents is listed below:
 * [Formatting](#formatting)
 * [Conduct](#conduct)
 
+
+
+To contribute to this workflow, clone this repository locally and commit your code on a separate branch.
+
+Generate unit tests for your code and run the linter before opening a pull request:
+
+```console
+$ snakemake --generate-unit-tests
+$ snakemake --lint
+```
+
+Participation in this project is subject to a [Code of Conduct](CODE_OF_CONDUCT.md)
+
 ## Support
 
 If you need any help getting started or solving an error:

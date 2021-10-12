@@ -12,32 +12,28 @@ A Snakemake workflow to analyse Affymetrix expression arrays
 * [Overview](#overview)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Deployment](#deployment)
 * [Documentation](#documentation)
 * [Contributing](#contributing)
 * [Authors](#authors)
 * [Citation](#citation)
-* [Partnerships](#partnerships)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
 
 ## Overview
 
-This workflow is used to analyse Affymetrix expression arrays. It performs quality control, differential expression analysis, and gene set testing. See `documentation.md` for configuration, execution, and output settings.
+This workflow is used to analyse Affymetrix expression arrays at the probe level. It performs quality control, differential expression analysis, and gene set testing. Batch correction and blocking are also implemented. Any expression array which has a Bioconductor annotation package is supported.
 
 ## Installation
 
 Install Snakemake using the conda package manager:
 
 ```console
-$ conda activate base
 $ conda create -c bioconda -c conda-forge --name snakemake snakemake
 ```
 
 Deploy the workflow to your project directory:
 
 ```console
-$ mkdir projects/arrays
 $ git pull https://github.com/zifornd/arrays projects/arrays
 ```
 
@@ -61,41 +57,25 @@ Execute the workflow and install dependencies:
 snakemake --cores all --use-conda 
 ```
 
-## Deployment
-
-@SumanGhosh
-
 ## Documentation
 
-See `documentation.md` for full documentation.
-
+See the [Documentation](workflow/documentation.md) file for all configuration, execution, and output information.
 
 ## Contributing
 
-To contribute to this workflow, clone this repository locally and commit your code on a separate branch.
+See the [Contributing](CONTRIBUTING.md) file for ways to get started.
 
-Generate unit tests for your code and run the linter before opening a pull request:
-
-```console
-$ snakemake --generate-unit-tests
-$ snakemake --lint
-```
-
-Participation in this project is subject to a [Code of Conduct](CODE_OF_CONDUCT.md)
+Please adhere to this project's [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Authors
 
-This workflow was developed by James Ashmore
+This workflow was developed by:
+
+- [James Ashmore](https://github.com/james-ashmore)
 
 ## Citation
 
-See `CITATION.cff` for ways to cite this workflow
-
-## Partnerships
-
-This workflow is used by the following organisations:
-
-- Zifo RnD Solutions
+See the [Citation](CITATION.cff) file for ways to cite this workflow.
 
 ## Acknowledgements
 
@@ -107,5 +87,5 @@ Klaus B and Reisenauer S. An end to end workflow for differential gene expressio
 
 ## License
 
-This workflow is licensed under the MIT license.  
+This workflow is licensed under the [MIT](LICENSE.md) license.  
 Copyright &copy; 2021, Zifo RnD Solutions
