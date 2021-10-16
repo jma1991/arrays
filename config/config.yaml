@@ -13,5 +13,12 @@ annotation: hugene10sttranscriptcluster.db
 # contrasts for the limma results method
 contrasts:
   A_vs_B:
-    - A
-    - B
+    - A - B
+
+# Expression filtering
+filter:
+  # Specify the group to which each sample belongs, which is used to obtain the
+  # appropriate minimum group size.
+  group: "condition"
+  #
+  exprs: 0

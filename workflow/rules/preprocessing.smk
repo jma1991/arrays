@@ -63,8 +63,8 @@ rule filter:
     output:
         rds = "results/filter.rds"
     params:
-        group = "condition",
-        exprs = 0
+        group = config["filter"]["group"],
+        exprs = config["filter"]["exprs"]
     log:
         out = "logs/filter.out",
         err = "logs/filter.err"

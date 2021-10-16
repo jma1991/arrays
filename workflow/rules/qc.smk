@@ -21,6 +21,23 @@ rule image:
     script:
         "../scripts/image.R"
 
+rule hist:
+    input:
+        rds = "results/annotate.rds"
+    output:
+        pdf = "results/hist.pdf"
+    params:
+        exprs = config["filter"]["exprs"]
+    log:
+        out = "logs/hist.out",
+        err = "logs/hist.err"
+    message:
+        "Plot feature expression histogram"
+    conda:
+        "../envs/environment.yaml"
+    script:
+        "../scripts/hist.R"
+
 rule boxplot:
     input:
         rds = "results/correct.rds"

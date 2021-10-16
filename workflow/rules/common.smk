@@ -21,6 +21,7 @@ def get_final_output():
         "results/annotate.rds",
         "results/filter.rds",
         "results/correct.rds",
+        "results/hist.pdf",
         "results/boxplot.pdf",
         "results/pca.pdf",
         "results/ma.png",

@@ -3,46 +3,95 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-makeDesign <- function(object) {
+modelMatrix <- function(object) {
+
+	# Get phenotype data
 
 	data <- pData(object)
-	
-	if ("condition" %in% colnames(data)) {
-		
+
+	names <- colnames(data)
+
+	# Set condition factor
+
+	if ("condition" %in% names) {
+
 		condition <- factor(data$condition)
+
+		n.condition <- nlevels(condition)
+
+		is.condition <- n.condition > 1
 	
 	} else {
-	
-		stop("No condition")
+
+		is.condition <- FALSE
+
 	}
 
-	if ("batch" %in% colnames(data)) {
+	# Set batch factor
+
+	if ("batch" %in% names) {
 
 		batch <- factor(data$batch)
 
+		n.batch <- nlevels(batch)
+
+		is.batch <- n.batch > 1
+
 	} else {
-		
-		warning("No batch")
 
-		batch <- rep(NA, times = ncol(data))
-
-		batch <- factor(batch)
+		is.batch <- FALSE
 
 	}
 
-	if (nlevels(batch) < 2) {
-	
+	# Set block factor
+
+	if ("block" %in% names) {
+
+		block <- factor(data$block)
+
+		n.block <- nlevels(block)
+
+		is.block <- n.block > 1
+
+	} else {
+
+		is.block <- FALSE
+
+	}
+
+	# Construct design matrix
+
+	if (is.condition & !is.batch & !is.block) {
+
 		design <- model.matrix(~ 0 + condition)
-	
-		colnames(design) <- levels(condition)
-	
-	} else {
-	
-		design <- model.matrix(~ 0 + condition + batch)
-	
-		colnames(design) <- c(levels(condition), tail(levels(batch), -1))
-	
+
 	}
+
+	if (is.condition & is.batch & !is.block) {
+
+		design <- model.matrix(~ 0 + condition + batch)
+
+	}
+
+	if (is.condition & !is.batch & is.block) {
+		
+		design <- model.matrix(~ 0 + condition + block)
+
+	}
+
+	if (is.condition & is.batch & is.block) {
+
+		design <- model.matrix(~ 0 + condition + batch + block)
+
+	}
+
+	# Rename condition coefficients
+
+	which.condition <- seq_len(n.condition)
+
+	colnames(design)[which.condition] <- levels(condition)
+
+	# Return design matrix
 
 	design
 
@@ -68,7 +117,7 @@ main <- function(input, output, params, log, config) {
 	
 	obj <- readRDS(input$rds)
 
-	mod <- makeDesign(obj)
+	mod <- modelMatrix(obj)
 	
 	fit <- lmFit(obj, mod)
 
