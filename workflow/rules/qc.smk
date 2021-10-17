@@ -25,7 +25,7 @@ rule hist:
     input:
         rds = "results/annotate.rds"
     output:
-        pdf = "results/hist.pdf"
+        pdf = report("results/hist.pdf", caption = "../report/hist.rst", category = "Quality Control")
     params:
         exprs = config["filter"]["exprs"]
     log:
