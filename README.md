@@ -59,7 +59,7 @@ $ snakemake --cores all --use-conda
 
 ## Documentation
 
-See the [Documentation](workflow/documentation.md) file for all configuration, execution, and output information.
+See the [Documentation](workflow/DOCUMENTATION.md) file for all configuration, execution, and output information.
 
 ## Contributing
 
