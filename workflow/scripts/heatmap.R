@@ -115,18 +115,21 @@ main <- function(input, output, params, log) {
     cpm <- exprs(obj)
 
     mat <- pheatmap.mat(cpm)
+
+    lab <- fData(obj)$SYMBOL
     
     pheatmap(
-        mat = mat, 
-        color = pheatmap.color("RdBu"), 
-        breaks = pheatmap.breaks(mat), 
+        mat = mat,
+        color = pheatmap.color("RdBu"),
+        breaks = pheatmap.breaks(mat),
+        cellwidth = 10,
+        cellheight = 10,
         cluster_rows = pheatmap.cluster_rows(mat), 
         cluster_cols = pheatmap.cluster_cols(cpm),
         annotation_col = pheatmap.annotation_col(obj),
-        labels_row = fData(obj)$SYMBOL,
-        filename = output$pdf, 
-        width = 7,
-        height = 7
+        show_colnames = FALSE,
+        labels_row = lab,
+        filename = output$pdf
     )
 
 }

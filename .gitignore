@@ -6,11 +6,12 @@
 !.github/**
 !.gitignore
 !.snakemake-workflow-catalog.yml
-!.test
-!.test/config
-!.test/config/*
-!.test/data
-!.test/data/*
+!.tests
+!.tests/integration
+!.tests/integration/config
+!.tests/integration/config/*
+!.tests/integration/data
+!.tests/integration/data/*
 !CITATION.cff
 !CODE_OF_CONDUCT.md
 !CONTRIBUTING.md

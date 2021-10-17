@@ -54,7 +54,7 @@ $ nano config/samples.tsv
 Execute the workflow and install dependencies:
 
 ```console
-snakemake --cores all --use-conda 
+$ snakemake --cores all --use-conda 
 ```
 
 ## Documentation
