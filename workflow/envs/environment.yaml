@@ -7,6 +7,7 @@ dependencies:
   - bioconductor-go.db
   - bioconductor-limma
   - bioconductor-oligo
+  - libblas
   - r-ggforce
   - r-ggplot2
   - r-ggrepel
