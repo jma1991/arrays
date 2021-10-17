@@ -24,7 +24,7 @@ def get_final_output():
         "results/hist.pdf",
         "results/boxplot.pdf",
         "results/pca.pdf",
-        "results/ma.png",
+        "results/ma.pdf",
         "results/mds.pdf",
         "results/dens.pdf",
         "results/hm.pdf",

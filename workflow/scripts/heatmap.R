@@ -69,6 +69,17 @@ pheatmap.cluster_cols <- function(x) {
 
 }
 
+pheatmap.annotation_col <- function(x) {
+
+    # Return column annotations
+
+    data.frame(
+        Condition = x$condition,
+        row.names = colnames(x)
+    )
+
+}
+
 main <- function(input, output, params, log) {
 
     # Log function
@@ -91,11 +102,15 @@ main <- function(input, output, params, log) {
 
     res <- read.delim(input$tsv)
 
+    ##
+
     ind <- order(res$P.Value)[seq_len(params$ntop)]
 
     ids <- as.character(res$PROBEID[ind])
 
     obj <- obj[ids, ]
+
+    ##
 
     cpm <- exprs(obj)
 
@@ -107,6 +122,7 @@ main <- function(input, output, params, log) {
         breaks = pheatmap.breaks(mat), 
         cluster_rows = pheatmap.cluster_rows(mat), 
         cluster_cols = pheatmap.cluster_cols(cpm),
+        annotation_col = pheatmap.annotation_col(obj),
         labels_row = fData(obj)$SYMBOL,
         filename = output$pdf, 
         width = 7,

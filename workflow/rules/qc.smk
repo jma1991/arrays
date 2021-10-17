@@ -76,7 +76,7 @@ rule ma:
     input:
         rds = "results/correct.rds"
     output:
-        png = report("results/ma.png", caption = "../report/ma.rst", category = "Quality Control")
+        pdf = report("results/ma.pdf", caption = "../report/ma.rst", category = "Quality Control")
     params:
         col = "condition"
     log:

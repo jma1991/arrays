@@ -23,13 +23,14 @@ main <- function(input, output, params, log) {
 
     library(params$platform, character.only = TRUE)
 
-    df <- read.delim(input$tsv, row.names = "sample")
+    dat <- read.delim(input$tsv, row.names = "sample")
 
-    pd <- AnnotatedDataFrame(df)
+    set <- read.celfiles(
+        filenames = dat$filename, 
+        phenoData = AnnotatedDataFrame(dat)
+    )
 
-    es <- read.celfiles(df$filename, phenoData = pd)
-
-    saveRDS(es, file = output$rds)
+    saveRDS(set, file = output$rds)
 
 }
 
