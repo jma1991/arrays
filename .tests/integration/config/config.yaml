@@ -6,3 +6,6 @@ contrasts:
   colitis.inflamed-colitis.normal:
     - colitis.inflamed
     - colitis.normal
+filter:
+  group: "condition"
+  exprs: 0
