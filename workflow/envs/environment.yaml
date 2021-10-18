@@ -7,7 +7,6 @@ dependencies:
   - bioconductor-go.db
   - bioconductor-limma
   - bioconductor-oligo
-  - libopenblas
   - r-ggforce
   - r-ggplot2
   - r-ggrepel
@@ -16,4 +15,4 @@ dependencies:
   - r-pheatmap
   - r-rcolorbrewer
   - r-reshape2
-#  - libopenblas=0.3.3 # https://stackoverflow.com/questions/61629861/error-return-code-from-pthread-create-is-22
+  - libopenblas=0.3.3 # https://stackoverflow.com/questions/61629861/error-return-code-from-pthread-create-is-22
