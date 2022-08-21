@@ -1,3 +1,0 @@
-WorkflowErrorin line 7 of /Users/James/GitHub/array/workflow/Snakefile:
-Workflow defines configfile config/config.yaml but it is not present or accessible.
-  File "/Users/James/GitHub/array/workflow/Snakefile", line 7, in <module>
