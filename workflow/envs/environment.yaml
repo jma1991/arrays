@@ -13,4 +13,4 @@ dependencies:
   - r-ggrepel=0.9.1
   - r-pheatmap=1.0.12
   - r-scales=1.2.1
-#  - libopenblas=0.3.3 # https://stackoverflow.com/questions/61629861/error-return-code-from-pthread-create-is-22
+  - libopenblas=0.3.3 # https://stackoverflow.com/questions/61629861/error-return-code-from-pthread-create-is-22
