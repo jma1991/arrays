@@ -99,7 +99,7 @@ For each sample, you must provide the following columns:
 | --- | --- | --- |
 | sample | Sample name | S1 |
 | condition | Condition | treatment |
-| filename | Array file | S1.CEL |
+| celfile | Array file | S1.CEL |
 
 To incorporate batch effects and blocking, you must add the following columns:
 
@@ -111,7 +111,7 @@ To incorporate batch effects and blocking, you must add the following columns:
 Below is an example of a valid sample table:
 
 ```
-sample  condition   filename batch  block
+sample  condition   celfile batch  block
 S1      C           S1.CEL   A      A   
 S2      C           S2.CEL   A      B
 S3      C           S1.CEL   B      C
@@ -233,7 +233,7 @@ Importantly, the batch-free expression data is not used for differential
 expression analysis. Instead, the batch factor is included in the design matrix.
 
 ```shell
-sample  condition   filename    batch
+sample  condition   celfile    batch
 S1      C           S1.CEL      A
 S2      C           S2.CEL      A
 S3      C           S3.CEL      B
@@ -248,7 +248,7 @@ To include a blocking factor in the experimental design, include a block column
 in the sample table. This can be used to account for designs such as paired samples. For example:
 
 ```shell
-sample  condition   filename    block
+sample  condition   celfile    block
 S1      C           S1.CEL      A
 S2      C           S2.CEL      B
 S3      C           S3.CEL      C

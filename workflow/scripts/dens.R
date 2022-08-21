@@ -48,7 +48,7 @@ main <- function(input, output, params, log) {
 
     p <- plotDensities(x, col = params$col)
     
-    ggsave(output$pdf, plot = p)
+    ggsave(output$pdf, plot = p, width = 8, height = 6, scale = 0.8)
 
 }
 

@@ -27,10 +27,7 @@ main <- function(input, output, params, log) {
 
 	dat <- read.delim(input$tsv, row.names = "sample")
 
-	set <- read.celfiles(
-		filenames = dat$filename, 
-		phenoData = AnnotatedDataFrame(dat)
-	)
+	set <- read.celfiles(dat$celfile, phenoData = AnnotatedDataFrame(dat))
 
 	saveRDS(set, file = output$rds)
 

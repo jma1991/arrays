@@ -6,6 +6,9 @@ contrasts:
   colitis.inflamed-colitis.normal:
     - colitis.inflamed
     - colitis.normal
+  crohns.inflamed-crohns.normal:
+    - crohns.inflamed
+    - crohns.normal
 filter:
   group: "condition"
   exprs: 0
