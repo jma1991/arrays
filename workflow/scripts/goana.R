@@ -3,45 +3,47 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-.libPaths(new = "resources/bioconductor/organism/lib/R/library")
-
 main <- function(input, output, params, log) {
 
-    # Log
+	# Log
 
-    out <- file(log$out, open = "wt")
+	out <- file(log$out, open = "wt")
 
-    err <- file(log$err, open = "wt")
+	err <- file(log$err, open = "wt")
 
-    sink(out, type = "output")
+	sink(out, type = "output")
 
-    sink(err, type = "message")
+	sink(err, type = "message")
 
-    # Script
+	# Script
 
-    library(limma)
+	library(limma)
 
-    library(params$organism, character.only = TRUE)
+	library(
+		params$organism,
+		character.only = TRUE,
+		lib.loc = "resources/bioconductor/organism/lib/R/library"
+	)
 
-    fit <- readRDS(input$rds)
+	fit <- readRDS(input$rds)
 
-    con <- paste(params$contrast, collapse = "-")
+	con <- paste(params$contrast, collapse = "-")
 
-    out <- goana(
-        de = fit, 
-        coef = con, 
-        geneid = "ENTREZID", 
-        FDR = params$FDR,
-        species = strsplit(params$organism, ".", fixed = TRUE)[[1]][2]
-    )
+	out <- goana(
+		de = fit, 
+		coef = con, 
+		geneid = "ENTREZID", 
+		FDR = params$FDR,
+		species = strsplit(params$organism, ".", fixed = TRUE)[[1]][2]
+	)
 
-    write.table(
-        out, 
-        file = output$tsv, 
-        quote = FALSE, 
-        sep = '\t', 
-        col.names = NA
-    )
+	write.table(
+		out, 
+		file = output$tsv, 
+		quote = FALSE, 
+		sep = '\t', 
+		col.names = NA
+	)
 
 }
 

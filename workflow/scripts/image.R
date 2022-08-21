@@ -3,25 +3,27 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-.libPaths(new = "resources/bioconductor/platform/lib/R/library")
-
 main <- function(input, output, params, log) {
 
-    # Log
+	# Log
 
-    out <- file(log$out, open = "wt")
+	out <- file(log$out, open = "wt")
 
-    err <- file(log$err, open = "wt")
+	err <- file(log$err, open = "wt")
 
-    sink(out, type = "output")
+	sink(out, type = "output")
 
-    sink(err, type = "message")
+	sink(err, type = "message")
 
-    # Script
+	# Script
 
 	library(oligo)
 
-	library(params$platform, character.only = TRUE)
+	library(
+		params$platform,
+		character.only = TRUE,
+		lib.loc = "resources/bioconductor/platform/lib/R/library"
+	)
 
 	obj <- readRDS(input$rds)
 
@@ -32,7 +34,7 @@ main <- function(input, output, params, log) {
 	png(output$png)
 
 	for (i in itr) {
-		
+
 		image(obj, which = i, main = ids[i])
 
 	}

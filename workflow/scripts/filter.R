@@ -35,7 +35,7 @@ filterByUniq <- function(object) {
 
 	keep <- data.frame(
 		ENTREZID = sapply(data$ENTREZID, all.equal),
-		SYMBOL   = sapply(data$ENTREZID, all.equal),
+		SYMBOL   = sapply(data$SYMBOL, all.equal),
 		GENENAME = sapply(data$GENENAME, all.equal)
 	)
 	

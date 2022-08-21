@@ -3,16 +3,14 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - bioconductor-annotationdbi
-  - bioconductor-go.db
-  - bioconductor-limma
-  - bioconductor-oligo
-  - r-ggforce
-  - r-ggplot2
-  - r-ggrepel
-  - r-hexbin
-  - r-matrixstats
-  - r-pheatmap
-  - r-rcolorbrewer
-  - r-reshape2
+  - bioconductor-annotationdbi=1.54.0
+  - bioconductor-go.db=3.13.0
+  - bioconductor-limma=3.48.0
+  - bioconductor-oligo=1.56.0
+  - r-base=4.1.0
+  - r-ggforce=0.3.4
+  - r-ggplot2=3.3.6
+  - r-ggrepel=0.9.1
+  - r-pheatmap=1.0.12
+  - r-scales=1.2.1
 #  - libopenblas=0.3.3 # https://stackoverflow.com/questions/61629861/error-return-code-from-pthread-create-is-22

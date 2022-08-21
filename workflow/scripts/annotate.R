@@ -3,8 +3,6 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-.libPaths(new = "resources/bioconductor/annotation/lib/R/library")
-
 main <- function(input, output, params, log) {
 
     # Log
@@ -21,7 +19,17 @@ main <- function(input, output, params, log) {
 
 	library(oligo)
 
-	library(params$annotation, character.only = TRUE)
+	library(
+		params$organism,
+		character.only  = TRUE,
+		lib.loc = "resources/bioconductor/organism/lib/R/library"
+	)
+
+	library(
+		params$annotation,
+		character.only = TRUE,
+		lib.loc = "resources/bioconductor/annotation/lib/R/library"
+	)
 
 	obj <- readRDS(input$rds)
 

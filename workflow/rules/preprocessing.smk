@@ -42,11 +42,15 @@ rule normalize:
 rule annotate:
     input:
         rds = "results/normalize.rds",
-        pkg = expand("resources/bioconductor/annotation/lib/R/library/{package}", package = config["annotation"])
+        pkg = [
+            expand("resources/bioconductor/annotation/lib/R/library/{package}", package = config["annotation"]),
+            expand("resources/bioconductor/organism/lib/R/library/{package}", package = config["organism"])
+        ]
     output:
         rds = "results/annotate.rds"
     params:
-        annotation = config["annotation"]
+        annotation = config["annotation"],
+        organism = config["organism"]
     log:
         out = "logs/annotate.out",
         err = "logs/annotate.err"

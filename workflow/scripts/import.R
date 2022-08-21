@@ -3,34 +3,36 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-.libPaths(new = "resources/bioconductor/platform/lib/R/library")
-
 main <- function(input, output, params, log) {
 
-    # Log
+	# Log
 
-    out <- file(log$out, open = "wt")
+	out <- file(log$out, open = "wt")
 
-    err <- file(log$err, open = "wt")
+	err <- file(log$err, open = "wt")
 
-    sink(out, type = "output")
+	sink(out, type = "output")
 
-    sink(err, type = "message")
+	sink(err, type = "message")
 
-    # Script
+	# Script
 
-    library(oligo)
+	library(oligo)
 
-    library(params$platform, character.only = TRUE)
+	library(
+		params$platform,
+		character.only = TRUE,
+		lib.loc = "resources/bioconductor/platform/lib/R/library"
+	)
 
-    dat <- read.delim(input$tsv, row.names = "sample")
+	dat <- read.delim(input$tsv, row.names = "sample")
 
-    set <- read.celfiles(
-        filenames = dat$filename, 
-        phenoData = AnnotatedDataFrame(dat)
-    )
+	set <- read.celfiles(
+		filenames = dat$filename, 
+		phenoData = AnnotatedDataFrame(dat)
+	)
 
-    saveRDS(set, file = output$rds)
+	saveRDS(set, file = output$rds)
 
 }
 

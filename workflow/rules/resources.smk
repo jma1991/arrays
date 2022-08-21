@@ -15,7 +15,7 @@ rule annotation:
     message:
         "Install annotation package: {params.name}"
     shell:
-        "conda create --quiet --yes -p {params.path} --channel bioconda --channel conda-forge bioconductor-{params.name} 1> {log.out} 2> {log.err}"
+        "conda create --quiet --yes --prefix {params.path} --strict-channel-priority --override-channels --channel conda-forge --channel bioconda --channel defaults bioconductor-{params.name}=8.7.0 1> {log.out} 2> {log.err}"
 
 rule organism:
     output:
@@ -29,7 +29,7 @@ rule organism:
     message:
         "Install organism package: {params.name}"
     shell:
-        "conda create --quiet --yes -p {params.path} --channel bioconda --channel conda-forge bioconductor-{params.name} 1> {log.out} 2> {log.err}"
+        "conda create --quiet --yes --prefix {params.path} --strict-channel-priority --override-channels --channel conda-forge --channel bioconda --channel defaults bioconductor-{params.name}=3.13.0 1> {log.out} 2> {log.err}"
 
 rule platform:
     output:
@@ -43,4 +43,4 @@ rule platform:
     message:
         "Install platform package: {params.name}"
     shell:
-        "conda create --quiet --yes -p {params.path} --channel bioconda --channel conda-forge bioconductor-{params.name} 1> {log.out} 2> {log.err}"
+        "conda create --quiet --yes --prefix {params.path} --strict-channel-priority --override-channels --channel conda-forge --channel bioconda --channel defaults bioconductor-{params.name}=3.14.1 1> {log.out} 2> {log.err}"
