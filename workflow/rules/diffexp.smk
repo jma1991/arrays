@@ -7,7 +7,7 @@ rule limma:
     input:
         rds = "results/filter.rds"
     output:
-        rds = report("results/model.rds", caption = "../report/model.rst", category = "Differential Expression Analysis")
+        rds = "results/model.rds"
     log:
         out = "logs/model.out",
         err = "logs/model.err"
