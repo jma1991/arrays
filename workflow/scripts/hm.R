@@ -41,7 +41,7 @@ heatmap.ExpressionSet <- function(object) {
 
 main <- function(input, output, params, log) {
 
-    # Log function
+    # Log
 
     out <- file(log$out, open = "wt")
 
@@ -51,7 +51,7 @@ main <- function(input, output, params, log) {
 
     sink(err, type = "message")
 
-    # Script function
+    # Script
 
     library(oligo)
 

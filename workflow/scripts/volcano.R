@@ -72,8 +72,8 @@ main <- function(input, output, params, log) {
         scale_colour_manual(values = col, labels = lab) +
         geom_text_repel(size = 1.88, colour = "#000000", show.legend = FALSE, max.overlaps = Inf) +
         labs(
-            x = expression("Log"[2]*"(fold change)"),
-            y = expression("-Log"[10]*"("*italic(p)*"-value)"),
+            x = expression("log"[2]*" fold change"),
+            y = expression("-log"[10]*"("*italic(P)*")"),
             colour = "Status"
         ) + 
         theme_bw() + 

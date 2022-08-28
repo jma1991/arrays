@@ -54,7 +54,8 @@ rule volcano:
     input:
         tsv = "results/{contrast}.toptable.tsv",
     output:
-        pdf = report("results/{contrast}.volcano.pdf", caption = "../report/volcano.rst", category = "Differential Expression Analysis", subcategory = "{contrast}")
+        pdf = report("results/{contrast}.volcano.pdf", caption = "../report/volcano.rst", category = "Differential Expression Analysis", subcategory = "{contrast}"),
+        html = "results/{contrast}.volcano.html"
     params:
         n = 10,
         PAdj = 0.05,
