@@ -15,4 +15,5 @@ dependencies:
   - r-pheatmap=1.0.12
   - r-plotly=4.10.0
   - r-scales=1.2.1
+  - r-statmod=1.4.37
   - libblas=*=*netlib # https://fortune9.netlify.app/2020/04/10/r-minfi-error-return-code-from-pthread-create-is-22/

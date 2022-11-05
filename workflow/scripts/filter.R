@@ -21,7 +21,7 @@ filterByType <- function(object) {
 
 	}
 
-	object <- object[keep, ]
+	object <- object[keep, , drop = FALSE]
 
 }
 
@@ -41,9 +41,9 @@ filterByUniq <- function(object) {
 	
 	keep <- apply(keep, 1, all)
 	
-	object <- object[keep, ]
+	object <- object[keep, , drop = FALSE]
 
-	# Unlist feature columns
+	# Unlist unique probes
 	
 	data <- fData(object)
 
@@ -56,17 +56,23 @@ filterByUniq <- function(object) {
 	)
 
 	fData(object) <- data
-	
-	# Filter missing probes
+
+    object
+
+}
+
+filterByName <- function(object) {
+
+	# Filter unnamed probes
 
 	data <- fData(object)
 
 	not.na <- function(x) !is.na(x)
-	
+
 	keep <- sapply(data$SYMBOL, not.na)
-	
-	object <- object[keep, ]
-	
+
+	object <- object[keep, , drop = FALSE]
+
 }
 
 filterByExpr <- function(object, group = NULL, exprs = NULL) {
@@ -83,7 +89,7 @@ filterByExpr <- function(object, group = NULL, exprs = NULL) {
 
 	keep <- rowSums(y >= exprs) >= size
 
-	object <- object[keep, ]
+	object <- object[keep, , drop = FALSE]
 
 }
 
@@ -108,6 +114,8 @@ main <- function(input, output, params, log) {
 	x <- filterByType(x)
 
 	x <- filterByUniq(x)
+
+    x <- filterByName(x)
 
 	x <- filterByExpr(x, group = params$group, exprs = params$exprs)
 

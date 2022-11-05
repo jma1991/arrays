@@ -16,6 +16,8 @@ validate(samples, schema="../schemas/samples.schema.yaml")
 def get_final_output():
 
     output = [
+        "results/design.rds",
+        "results/contrasts.rds",
         "results/import.rds",
         "results/normalize.rds",
         "results/annotate.rds",
@@ -48,11 +50,11 @@ def get_final_output():
 
         output.append(f"results/{contrast}.topgo.pdf")
 
-        # https://support.bioconductor.org/p/9144999/
+    # https://support.bioconductor.org/p/9144999/
 
-        #output.append(f"results/{contrast}.kegga.tsv")
+    # output.append(f"results/{contrast}.kegga.tsv")
 
-        #output.append(f"results/{contrast}.topkegg.pdf")
+    # output.append(f"results/{contrast}.topkegg.pdf")
 
     return output
 

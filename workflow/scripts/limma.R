@@ -3,97 +3,57 @@
 # Email: james.ashmore@zifornd.com
 # License: MIT
 
-modelMatrix <- function(object) {
+lmFit <- function(object, design) {
 
-	# Get phenotype data
+    # Get phenotype data
 
-	data <- pData(object)
+    data <- pData(object)
 
-	names <- colnames(data)
+    names <- colnames(data)
 
-	# Set condition factor
+    # Set block factor
 
-	if ("condition" %in% names) {
+    if ("block" %in% names) {
 
-		condition <- factor(data$condition)
+        block <- factor(data$block)
 
-		n.condition <- nlevels(condition)
+        n.block <- nlevels(block)
 
-		is.condition <- n.condition > 1
-	
-	} else {
+        is.block <- n.block > 1
 
-		is.condition <- FALSE
+    } else {
 
-	}
+        is.block <- FALSE
 
-	# Set batch factor
+    }
 
-	if ("batch" %in% names) {
+    # Fit linear model ...
 
-		batch <- factor(data$batch)
+    if (is.block) {
 
-		n.batch <- nlevels(batch)
+        # ... with block
 
-		is.batch <- n.batch > 1
+        output <- limma::duplicateCorrelation(object, design, block = block)
 
-	} else {
+        object <- limma::lmFit(
+            object      = object,
+            design      = design,
+            block       =  block,
+            correlation = output$consensus.correlation
+        )
 
-		is.batch <- FALSE
+    } else {
 
-	}
+        # ... without block
 
-	# Set block factor
+        object <- limma::lmFit(
+            object = object,
+            design = design
+        )
 
-	if ("block" %in% names) {
+    }
 
-		block <- factor(data$block)
-
-		n.block <- nlevels(block)
-
-		is.block <- n.block > 1
-
-	} else {
-
-		is.block <- FALSE
-
-	}
-
-	# Construct design matrix
-
-	if (is.condition & !is.batch & !is.block) {
-
-		design <- model.matrix(~ 0 + condition)
-
-	}
-
-	if (is.condition & is.batch & !is.block) {
-
-		design <- model.matrix(~ 0 + condition + batch)
-
-	}
-
-	if (is.condition & !is.batch & is.block) {
-		
-		design <- model.matrix(~ 0 + condition + block)
-
-	}
-
-	if (is.condition & is.batch & is.block) {
-
-		design <- model.matrix(~ 0 + condition + batch + block)
-
-	}
-
-	# Rename condition coefficients
-
-	which.condition <- seq_len(n.condition)
-
-	colnames(design)[which.condition] <- levels(condition)
-
-	# Return design matrix
-
-	design
+    object
 
 }
 
@@ -111,26 +71,23 @@ main <- function(input, output, params, log, config) {
 
     # Script
 
-	library(limma)
+    library(limma)
 
-	library(oligo)
-	
-	obj <- readRDS(input$rds)
+    library(oligo)
 
-	mod <- modelMatrix(obj)
-	
-	fit <- lmFit(obj, mod)
+    object <- readRDS(input$rds[1])
 
-	con <- sapply(config$contrasts, paste, collapse = "-")
-	
-	mat <- makeContrasts(contrasts = con, levels = colnames(mod))
+    design <- readRDS(input$rds[2])
 
-	fit <- contrasts.fit(fit, mat)
+    contrasts <- readRDS(input$rds[3])
 
-	fit <- eBayes(fit)
+    object <- lmFit(object, design)
 
-	saveRDS(fit, file = output$rds)
+    object <- contrasts.fit(object, contrasts)
 
+    object <- eBayes(object)
+
+    saveRDS(object, file = output$rds)
 }
 
 main(snakemake@input, snakemake@output, snakemake@params, snakemake@log, snakemake@config)
