@@ -18,6 +18,7 @@ wildcard_constraints:
 
 # Workflow rules
 include: "rules/common.smk"
+include: "rules/handlers.smk"
 include: "rules/resources.smk"
 include: "rules/preprocessing.smk"
 include: "rules/qc.smk"
