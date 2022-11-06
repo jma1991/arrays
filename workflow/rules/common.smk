@@ -23,6 +23,7 @@ class colors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+
 def get_final_output():
 
     output = [
