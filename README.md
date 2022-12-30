@@ -2,8 +2,9 @@
 
 A Snakemake workflow to analyse Affymetrix expression arrays
 
+[![Snakemake](https://img.shields.io/badge/snakemake-brightgreen.svg)](https://snakemake.github.io)
 ![GitHub Actions: CI](https://github.com/zifornd/array/actions/workflows/main.yml/badge.svg)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 ## Contents
 
