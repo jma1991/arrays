@@ -70,7 +70,7 @@ Please adhere to this project's [Code of Conduct](CODE_OF_CONDUCT.md).
 
 This workflow was developed by:
 
-- [James Ashmore](https://github.com/james-ashmore)
+- [James Ashmore](https://github.com/jma1991)
 
 ## Citation
 
