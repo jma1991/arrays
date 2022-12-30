@@ -2,7 +2,7 @@
 
 A Snakemake workflow to analyse Affymetrix expression arrays
 
-![Actions](https://github.com/zifornd/array/actions/workflows/main.yml/badge.svg)
+![example workflow](https://github.com/zifornd/array/actions/workflows/main.yml/badge.svg)
 
 ## Contents
 
