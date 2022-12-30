@@ -2,7 +2,8 @@
 
 A Snakemake workflow to analyse Affymetrix expression arrays
 
-![Actions](https://github.com/zifornd/array/actions/workflows/main.yml/badge.svg)
+![GitHub Actions: CI](https://github.com/zifornd/array/actions/workflows/main.yml/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Contents
 
