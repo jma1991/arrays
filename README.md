@@ -1,4 +1,4 @@
-# arrays <img align="right" width="200" src="images/roundel.png">
+# arrays <img align="right" width="200" src="images/sticker.png">
 
 A Snakemake workflow to analyse Affymetrix expression arrays
 
