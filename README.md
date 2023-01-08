@@ -85,6 +85,8 @@ This workflow is based on the following research article:
 Klaus B and Reisenauer S. An end to end workflow for differential gene expression using Affymetrix microarrays [version 2; peer review: 2 approved]. F1000Research 2018, 5:1384 (https://doi.org/10.12688/f1000research.8967.2)
 ```
 
+The sticker artwork was adapted from [BiocStickers](https://github.com/Bioconductor/BiocStickers) and [Bioicons](https://bioicons.com) by [Guillaume Paumier](https://guillaumepaumier.com/bio/).
+
 ## License
 
 This workflow is licensed under the [MIT](LICENSE.md) license.  
