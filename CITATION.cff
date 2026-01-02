@@ -3,8 +3,21 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Ashmore"
   given-names: "James"
-title: "My Research Software"
+  orcid: "https://orcid.org/0000-0002-0805-8732"
+title: "arrays: A Snakemake workflow to analyse Affymetrix expression arrays"
+description: "A Snakemake workflow to analyse Affymetrix expression arrays at the probe level. It performs quality control, differential expression analysis, and gene set testing."
+type: software
 version: 2.0.4
-doi: 10.5281/zenodo.1234
-date-released: 2017-12-18
+doi: 10.5281/zenodo.413935149
+date-released: 2021-09-24
 url: "https://github.com/jma1991/arrays"
+repository-code: "https://github.com/jma1991/arrays"
+repository: "https://zenodo.org/record/413935149"
+license: MIT
+keywords:
+  - snakemake
+  - affymetrix
+  - microarray
+  - differential-expression
+  - quality-control
+  - gene-set-analysis
