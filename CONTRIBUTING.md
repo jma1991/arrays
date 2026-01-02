@@ -88,4 +88,4 @@ considered.
 ## Conduct
 
 Contributors must adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) and
-violations should be reported to [James Ashmore](james.ashmore@zifornd.com) as soon as possible.
+violations should be reported to [James Ashmore](jma1991@icloud.com) as soon as possible.
