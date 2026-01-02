@@ -3,7 +3,7 @@
 A Snakemake workflow to analyse Affymetrix expression arrays
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-![GitHub Actions: CI](https://github.com/zifornd/arrays/actions/workflows/main.yml/badge.svg)
+![GitHub Actions: CI](https://github.com/jma1991/arrays/actions/workflows/main.yml/badge.svg)
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/413935149.svg)](https://zenodo.org/badge/latestdoi/413935149)
 
@@ -34,7 +34,7 @@ $ conda create -c bioconda -c conda-forge --name snakemake snakemake
 Deploy the workflow to your project directory:
 
 ```console
-$ git pull https://github.com/zifornd/arrays projects/arrays
+$ git pull https://github.com/jma1991/arrays projects/arrays
 ```
 
 ## Usage
@@ -90,4 +90,4 @@ The sticker artwork was adapted from [BiocStickers](https://github.com/Bioconduc
 ## License
 
 This workflow is licensed under the [MIT](LICENSE.md) license.  
-Copyright &copy; 2021, Zifo RnD Solutions
+Copyright &copy; 2021, James Ashmore

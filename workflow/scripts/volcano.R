@@ -1,6 +1,6 @@
 # Author: James Ashmore
 # Copyright: Copyright 2020, James Ashmore
-# Email: james.ashmore@zifornd.com
+# Email: jma1991@icloud.com
 # License: MIT
 
 add.status <- function(x, PAdj = 0.05) {
